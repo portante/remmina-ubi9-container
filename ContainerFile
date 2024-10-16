@@ -1,0 +1,5 @@
+FROM registry.fedoraproject.org/fedora 
+
+RUN dnf install -y gnome-calculator
+
+CMD ["/usr/bin/gnome-calculator"]

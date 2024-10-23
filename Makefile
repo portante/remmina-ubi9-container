@@ -19,10 +19,12 @@ run:
 	podman run --rm \
 		--read-only=true \
 		--security-opt label=disable \
+		--device=/dev/dri/renderD128 \
 		--mount type=tmpfs,destination=/run/user \
 		--volume ${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY}:${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY} \
 		--env XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR} \
 		--env HOME=/tmp \
+		--env DISPLAY=${DISPLAY} \
 		--env GDK_BACKEND=wayland \
 		--env QT_QPA_PLATFORM=wayland \
 		--env XDG_SESSION_TYPE=wayland \
